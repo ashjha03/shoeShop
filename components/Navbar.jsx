@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import Link from "next/link";
 import {
   AiOutlineHeart,
   AiOutlineDown,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
+import Cart from "./Cart";
+
 
 const Navbar = () => {
+  const [showCart, setShowCart] = useState(false)
+
   return (
+    <>
     <nav className="lg:flex py-5 px-2 border-b md:px-10 justify-between items-center w-full overflow-scroll">
       <Link href="/" className="navHead flex items-center justify-center lg:pb-0 pb-2 lg:text-start text-center">
         {/* <img className="w-[50px] pr-3" src={require("../../assets/profile.png")} alt="" /> */}
@@ -34,12 +39,14 @@ const Navbar = () => {
           <AiOutlineHeart className="text-2xl cursor-pointer" />
           <div className="wishCount absolute -top-4 left-5 text-secondary-content bg-secondary px-1 rounded-full">8</div>
         </div>
-        <div className="myCart relative flex items-center">
+        <div onClick={() => setShowCart(true)} className="myCart relative flex items-center">
           <AiOutlineShoppingCart className="text-2xl cursor-pointer" />
-          <div className="wishCount absolute -top-4 left-5 text-secondary-content bg-secondary px-1 rounded-full">2</div>
+          <div className="wishCount absolute -top-4 left-5 text-secondary-content bg-secondary px-1 rounded-full">3</div>
         </div>
       </div>
     </nav>
+    <Cart showCart={showCart} setShowCart={setShowCart} />
+    </>
   );
 };
 
