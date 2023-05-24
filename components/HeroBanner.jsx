@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 
 const HeroBanner = () => {
   return (
-    <div className="max-w-[1060px] w-full mx-auto relative">
+    <div className="max-w-[1060px] w-full mx-auto relative z-0">
       <Carousel autoPlay={true} showStatus={false} showIndicators={false} infiniteLoop={true} showThumbs={false} showArrows={false}>
         <div>
           <img src="https://wallpapercave.com/wp/wp2183986.jpg" alt="" className="aspect-[16/10] lg:h-[70vh] md:aspect-auto object-cover" />
