@@ -8,13 +8,9 @@ import {
 import Cart from "./Cart";
 import Categories from "./Categories";
 
-const Navbar = ({changeTheme}) => {
+const Navbar = ({changeTheme, cartItems}) => {
   const [showCart, setShowCart] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
-
-  const toggleCategories = () => {
-    console.log("click");
-  };
 
   return (
     <>
@@ -66,9 +62,9 @@ const Navbar = ({changeTheme}) => {
           </div>
         </div>
       </nav>
-      <Cart showCart={showCart} setShowCart={setShowCart} />
+      <Cart cartItems={cartItems} showCart={showCart} setShowCart={setShowCart} />
     </>
   );
 };
 
-export default Navbar;
+export default Navbar

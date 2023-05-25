@@ -3,11 +3,15 @@ import { useRouter } from "next/router";
 import ProductItem from "/components/ProductItem.jsx";
 import { fetchDataFromApi } from "@/utils/api";
 
-const ProductPage = () => {
+const ProductPage = ({addToCart}) => {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
+
+  const callCart = () => {
+    addToCart({data});
+  }
 
   const fetchData = async () => {
     const res = await fetchDataFromApi(
@@ -70,7 +74,7 @@ const ProductPage = () => {
             </div>
           </div>
           <div className="buttons pt-4">
-            <div className="btn w-full bg-secondary text-secondary-content mb-3 outline-none border-none">
+            <div onClick={callCart} className="btn w-full bg-secondary text-secondary-content mb-3 outline-none border-none">
               Add to Cart
             </div>
             <div className="btn w-full bg-primary text-primary-content outline-none border-none">
