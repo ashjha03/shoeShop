@@ -8,7 +8,7 @@ import {
 import Cart from "./Cart";
 import Categories from "./Categories";
 
-const Navbar = ({changeTheme, cartItems}) => {
+const Navbar = ({changeTheme, cartItems, setCartItems}) => {
   const [showCart, setShowCart] = useState(false);
   const [showCategories, setShowCategories] = useState(false);
 
@@ -62,7 +62,7 @@ const Navbar = ({changeTheme, cartItems}) => {
           </div>
         </div>
       </nav>
-      <Cart cartItems={cartItems} showCart={showCart} setShowCart={setShowCart} />
+      <Cart cartItems={cartItems} setCartItems={setCartItems} showCart={showCart} setShowCart={setShowCart} />
     </>
   );
 };
