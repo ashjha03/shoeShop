@@ -31,13 +31,13 @@ const Navbar = ({changeTheme, cartItems, setCartItems}) => {
           </Link>
           <Link
             onMouseEnter={() => setShowCategories(!showCategories)}
-            onMouseLeave={() => setShowCategories(!showCategories)}
-            className="pr-5 flex items-center relative transition-all"
-            href="#services"
+            onMouseOut={() => setShowCategories(!showCategories)} 
+            className="pr-5 flex items-center relative transition-all cursor-pointer"
+            href=""
           >
             <p className=" transition-all pr-1">Categories</p>
-            <Categories showCategories={showCategories} />
             <AiOutlineDown />
+            <Categories showCategories={showCategories} />
           </Link>
           <Link className="pr-5" href="#contact">
             <p className="hover:scale-110 transition-all">Contact</p>

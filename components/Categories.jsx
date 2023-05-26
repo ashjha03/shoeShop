@@ -6,7 +6,7 @@ const Categories = ({ showCategories }) => {
   const [categories, setCategories] = useState([]);
 
   const fetchData = async () => {
-    const { data } = await fetchDataFromApi("/api/categories");
+    const { data } = await fetchDataFromApi("/api/categories?populate=*");
     setCategories(data);
   };
 

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import ProductItem from "/components/ProductItem.jsx";
 import { fetchDataFromApi } from "@/utils/api";
 
-const ProductPage = ({addToCart}) => {
+const ProductPage = ({addToCart, setSelectedSize}) => {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState([]);
@@ -18,6 +18,7 @@ const ProductPage = ({addToCart}) => {
       `/api/products?populate=*&[filters][slug][$eq]=${slug}`
     );
     setData(res.data);
+    setSelectedSize(res?.data[0]?.attributes?.size?.data[0]?.size)
   };
 
   useEffect(() => {
@@ -63,10 +64,10 @@ const ProductPage = ({addToCart}) => {
           <div>
             <h1 className="text-2xl pt-6">Sizes : </h1>
             <div className="sizes grid grid-cols-4 gap-4 text-center pt-4">
-              {data[0]?.attributes?.size?.data?.map((element) => {
+              {data[0]?.attributes?.size?.data?.map((element, index) => {
                 if (element.enabled)
                   return (
-                    <div className="p-2 bg-primary text-primary-content rounded-lg cursor-pointer font-bold">
+                    <div key={index} onClick={() => setSelectedSize(element.size)} className="p-2 bg-primary text-primary-content rounded-lg cursor-pointer font-bold">
                       <p className="text-xl">{element.size}</p>
                     </div>
                   );

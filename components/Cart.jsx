@@ -67,8 +67,8 @@ const Cart = ({ showCart, setShowCart, cartItems, setCartItems }) => {
                     </h1>
                   </div>
                   <div className="size">
-                    {/* <p> {data.size} </p> */}
-                    <p>Regular</p>
+                    <p> {data.size} </p>
+                    {/* <p>Regular</p> */}
                   </div>
                   <div className="flex gap-2 justify-center items-center">
                     <AiOutlineMinusCircle
